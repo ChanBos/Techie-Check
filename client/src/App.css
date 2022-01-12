@@ -1,0 +1,172 @@
+/* GENERAL */
+/* Set the minimum height, the margins, padding and the background and font colour of the application. */
+.App {
+  min-height: 617px;
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  color: white;
+}
+
+/* Removed the margins and the padding of the Bootstrap rows and columns. */
+.col,
+.row {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+/* Set the right margin, the background colour and and added a gradient border around the buttons. */
+.btn {
+  margin-right: 4px;
+  background: transparent !important;
+  border-width: 3px !important;
+  border-image: linear-gradient(to bottom right, #2feaff, #f676ff) 1 !important;
+}
+
+/* Set for the buttons' font colours to change once hovered over. */
+.btn:hover {
+  color: #2feaff !important;
+}
+
+/* NAVIGATION */
+/* Set the bottom margin of the navigation bar. */
+#navbar {
+  margin-bottom: 25px;
+}
+
+/* Set the logo's width. */
+#logo {
+  width: 200px;
+}
+
+/* Set the top margin of the navigation bar's dropdown button. */
+.dropdown {
+  margin-top: 20px !important;
+}
+
+/* Set the right margin of the user icon. */
+.fa-user {
+  margin-right: 5px;
+}
+
+/* LANDING PAGE */
+/* Set the left margin of the intro paragraph. */
+.intro-paragraph {
+  margin-left: 20px !important;
+  margin-right: 92px !important;
+}
+
+/* HOME PAGE */
+/* Set the size (height x width), the position to relative (to allow for the overlay effect), the top and bottom margins, the padding, the background 
+colour and added a gradient border around the topic cards. */
+.topic-card {
+  height: 250px;
+  width: 250px !important;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 20px !important;
+  padding: 15px;
+  background: transparent !important;
+  border-width: 3px !important;
+  border-image: linear-gradient(to bottom right, #2feaff, #f676ff) 1 !important;
+}
+
+/* Set for the cursor to change to a pointer once the topic card is hovered over. */
+.topic-card:hover {
+  cursor: pointer;
+}
+
+/* Set for the topic card's image to display as a block and set the margins and width. */
+.topic-image {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+/* Set for the topic card's image overlay to display as flex in a column direction, set the position to absolute and aligned it to the top-left 
+corner (to allow for the overlay over the image). Also set the size (height x width), justified and aligned it to the center and set the 
+background colour. Set the opacity to 0 so that it initially does not display and set for it to transition over a period of 25 seconds.*/
+.topic-image-overlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #00000099;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+/* Set for the children of the overlay to initially be positioned 20px below the intended position and to transition
+to the intended position over a period of 25 seconds. */
+.topic-image-overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+/* Set for the opacity of the overlay to be "removed/ cleared" and for the overlay to be shown once the card's image
+is hovered over. */
+.topic-image-overlay:hover {
+  opacity: 1;
+}
+
+/* Set for the overlay's children to be "raised" from 20px to 0px once the image is hovered over. */
+.topic-image-overlay:hover > * {
+  transform: translateY(0);
+}
+
+/* Added a backdrop filter for the images to be blurred once the image is hovered over. */
+.topic-image-overlay-blur {
+  backdrop-filter: blur(2px);
+}
+
+/* Set the font size of the topic card's title. */
+.topic-title {
+  font-size: 3em !important;
+}
+
+/* QUESTIONNAIRE PAGE */
+
+.question-card {
+  margin: 20px auto;
+  padding: 15px;
+  background: transparent !important;
+  border-width: 3px !important;
+  border-image: linear-gradient(to bottom right, #2feaff, #f676ff) 1 !important;
+  text-align: center;
+}
+
+/* --- Footer --- */
+/* Set the font colour and weight, the top padding and the margins of the footer's header text. */
+#footer-header {
+  margin: 5px auto !important;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  width: 325px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Set the font colour and right margin of the footer's heart icon. */
+.fa-heart {
+  color: #f676ff;
+  margin-right: 3px;
+}
+
+/* Set the bottom and top margins, the font size of the "Scroll to Top" icon and for the cursor to change once the icon is hovered over. */
+.fa-angle-double-up {
+  margin-bottom: -25px !important;
+  margin-right: 35px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Set the font colour of the footer's "Scroll to Top" icon. */
+.fa-angle-double-up:hover {
+  color: #2feaff;
+}
