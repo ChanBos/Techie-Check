@@ -15,6 +15,12 @@
   margin: 0px !important;
 }
 
+/* Set the size (height x width) of the row containers. */
+.row-container {
+  height: 424px;
+  width: auto;
+}
+
 /* Set the right margin, the background colour and and added a gradient border around the buttons. */
 .btn {
   margin-right: 4px;
@@ -28,10 +34,19 @@
   color: #2feaff !important;
 }
 
+.h3-main-headers {
+  margin-bottom: 15px;
+}
+
 /* NAVIGATION */
 /* Set the bottom margin of the navigation bar. */
 #navbar {
   margin-bottom: 25px;
+}
+
+/* Set the width of the navigation bar. */
+.navbar-nav {
+  width: 100%;
 }
 
 /* Set the logo's width. */
@@ -49,6 +64,24 @@
   margin-right: 5px;
 }
 
+/* Set the top padding and the left margin of the auth buttons' navigation container. */
+#auth-nav-container {
+  padding-top: 25px !important;
+  margin-left: 40px !important;
+}
+
+/* Set the left and right margins of the h1 elements. */
+.auth-h1 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Set the height of the authentication buttons to fit the buttons' content and set the top margin. */
+.auth-button {
+  height: fit-content;
+  margin-top: 5px !important;
+}
+
 /* LANDING PAGE */
 /* Set the left margin of the intro paragraph. */
 .intro-paragraph {
@@ -56,7 +89,38 @@
   margin-right: 92px !important;
 }
 
+/* Set the height and the maximum width of the landing image. */
+#home-img {
+  height: auto;
+  max-width: 475px;
+}
+
+/* REGISTER/ LOGIN PAGES */
+/* Set the width and margins of the authentication's input elements*/
+.auth-input {
+  width: 515px !important;
+  margin-top: 30px;
+  margin-bottom: 30px !important;
+  margin-right: 0px !important;
+}
+
+/* Set the margins of the auth content section. */
+.auth-content {
+  margin: auto !important;
+}
+
 /* HOME PAGE */
+/* Set the left padding of the ordered list element. */
+ol,
+ul {
+  padding-left: 18px !important;
+}
+
+/* Set the bottom padding of the listed instructions. */
+li {
+  padding-bottom: 10px;
+}
+
 /* Set the size (height x width), the position to relative (to allow for the overlay effect), the top and bottom margins, the padding, the background 
 colour and added a gradient border around the topic cards. */
 .topic-card {
@@ -130,7 +194,8 @@ is hovered over. */
 }
 
 /* QUESTIONNAIRE PAGE */
-
+/* Set the margins, padding, background colour and text alignment of the question/ answer cards. Also added a gradient border (coloured, sized 
+and) gradient direction set). */
 .question-card {
   margin: 20px auto;
   padding: 15px;
@@ -140,12 +205,29 @@ is hovered over. */
   text-align: center;
 }
 
+/* DASHBOARD */
+
+#dashboard-table {
+  margin-top: 20px;
+  color: #ffffff;
+  border-width: 3px !important;
+  border-image: linear-gradient(to bottom right, #2feaff, #f676ff) 1 !important;
+}
+
 /* --- Footer --- */
+/* Set the footer's position and aligned it to be centered at the bottom of the page. */
+.footer {
+  position: relative;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
 /* Set the font colour and weight, the top padding and the margins of the footer's header text. */
 #footer-header {
   margin: 5px auto !important;
-  padding-top: 20px;
-  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 10px;
   width: 325px;
   text-align: center;
   font-weight: bold;
@@ -156,17 +238,4 @@ is hovered over. */
 .fa-heart {
   color: #f676ff;
   margin-right: 3px;
-}
-
-/* Set the bottom and top margins, the font size of the "Scroll to Top" icon and for the cursor to change once the icon is hovered over. */
-.fa-angle-double-up {
-  margin-bottom: -25px !important;
-  margin-right: 35px;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-/* Set the font colour of the footer's "Scroll to Top" icon. */
-.fa-angle-double-up:hover {
-  color: #2feaff;
 }

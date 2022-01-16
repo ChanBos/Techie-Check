@@ -25,13 +25,14 @@ const Questionnaire = () => {
 
   return (
     <div>
-      <Row>
+      <Row className="row-container">
         <Col>
           <Card className="col-md-11 question-card">
-            <Card.Title>QUESTION:</Card.Title>
+            <Card.Title>QUESTION</Card.Title>
             <Card.Body>
               <Card.Text>Fetch Questions from API</Card.Text>
             </Card.Body>
+            <Card.Title>SELECT YOUR ANSWER</Card.Title>
             <Button>Fetch Answer Options from API</Button>
           </Card>
         </Col>

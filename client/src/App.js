@@ -9,8 +9,11 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 // Imported screens.
 import Landing from "./screens/Landing";
+import Register from "./screens/Register";
+import Login from "./screens/Login";
 import Home from "./screens/Home";
 import Questionnaire from "./screens/Questionnaire";
+import Dashboard from "./screens/Dashboard";
 
 /**
  * Created the App function and returning components to be exported to index.js.
@@ -34,8 +37,11 @@ const App = (props) => {
         <BrowserRouter>
           <Routes>
             <Route path="/" exact element={<Landing />} />
+            <Route path="/register" exact element={<Register />} />
+            <Route path="/login" exact element={<Login />} />
             <Route path="/Home" exact element={<Home />} />
             <Route path="/Questionnaire" exact element={<Questionnaire />} />
+            <Route path="/Dashboard" exact element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </div>

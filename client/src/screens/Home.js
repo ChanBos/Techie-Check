@@ -13,16 +13,22 @@ const Home = () => {
     <div>
       <Row>
         <Col className="col-md-2 intro-paragraph">
-          <h4>HOW TECH-SAVVY ARE YOU?</h4>
-          <p>...</p>
+          <h3 className="h3-main-headers">How Tech-Savvy Are You?</h3>
+          <h5>Get Started:</h5>
           <ol>
             <li>Select the preferred topic.</li>
             <li>Select the preferred difficulty.</li>
-            <li>Each selection generates 10 multiple choice questions.</li>
-            <li>Visit the dashboard to check the records of your results.</li>
+            <li>
+              Each selection generates 10 multiple choice questions to be
+              completed.
+            </li>
+            <li>
+              After completing the questions, you will be displayed your
+              results.
+            </li>
+            <li>Visit the dashboard to access records of your results.</li>
           </ol>
-          <p>...</p>
-          <p>...</p>
+          <h5>&#10095;&#10095;&#10095; ENJOY!</h5>
         </Col>
         <Col className="col-md-9">
           <Row>

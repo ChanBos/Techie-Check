@@ -28,13 +28,6 @@ const Footer = () => {
             CREATED WITH <FontAwesomeIcon icon={faHeart} />
             BY CHANELLE BÖSIGER
           </h6>
-          <div>
-            <FontAwesomeIcon
-              icon={faAngleDoubleUp}
-              onClick={scrollToTop}
-              title="Scroll to Top"
-            />
-          </div>
         </Row>
       </Container>
     </div>
