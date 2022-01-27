@@ -7,17 +7,17 @@ const cors = require("cors");
 // Requiring body-parser.
 const bodyParser = require("body-parser");
 // Requiring Mongoose.
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 // Requiring logger from Morgan.
 const logger = require("morgan");
 // Requiring Helmet.
 const helmet = require("helmet");
 // Requiring dotenv.
-// const dbConfig = require("./config/app.config.js");
+const dbConfig = require("./config/app.config.js");
 // Requiring the routes files.
-// const roomsRouter = require("./routes/roomsRouter.js");
-// const usersRouter = require("./routes/usersRouter.js");
-// const bookingsRouter = require("./routes/bookingsRouter.js");
+const apiRouter = require("./routes/apiRouter.js");
+const quizRouter = require("./routes/quizRouter.js");
+const usersRouter = require("./routes/usersRouter.js");
 
 /**
  * Enabling App usages.
@@ -43,24 +43,28 @@ app.use(
 // Enabling the connection to MongoDB via the uri from the config file.
 // Added useNewUrlParser flag to allow falling back to the old parser should a bug be found in the new parser.
 // Added useUnifiedTopology to set up a connection string and begin doing operations.
-// const uri = `mongodb+srv://${dbConfig.DB_USERNAME}:${dbConfig.DB_PASSWORD}@cluster0.u93js.mongodb.net/MERN-Hotel-Booking-App?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${dbConfig.DB_USERNAME}:${dbConfig.DB_PASSWORD}@cluster0.jkev0.mongodb.net/Techie-Check?retryWrites=true&w=majority`;
 
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false,
-// });
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Logging a confirmation message to the console should the connection be successful.
+mongoose.connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
 
 // Should an error occur connecting to the MongoDB database, a message will be logged to the console as a notification of the error.
-// mongoose.connection.on("error", () => {
-//   console.log("Could not connect to the database. Exiting now...");
-//   process.exit();
-// });
+mongoose.connection.on("error", () => {
+  console.log("Could not connect to the database. Exiting now...");
+  process.exit();
+});
 
 // Enabling the api app to use the routes from the roomsRouter.js and authRouter.js files.
-// app.use("/api/rooms", roomsRouter);
-// app.use("/api/users", usersRouter);
-// app.use("/api/bookings", bookingsRouter);
+app.use("/api", apiRouter);
+app.use("/quiz", quizRouter);
+app.use("/users", usersRouter);
 
 // Checking if the process is production mode and set for the index.html file from the build folder to be utilized, instead of the public folder.
 const path = require("path");

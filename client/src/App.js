@@ -13,6 +13,7 @@ import Register from "./screens/Register";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import Questionnaire from "./screens/Questionnaire";
+import Score from "./screens/Score";
 import Dashboard from "./screens/Dashboard";
 
 /**
@@ -41,6 +42,7 @@ const App = (props) => {
             <Route path="/login" exact element={<Login />} />
             <Route path="/Home" exact element={<Home />} />
             <Route path="/Questionnaire" exact element={<Questionnaire />} />
+            <Route path="/Score" exact element={<Score />} />
             <Route path="/Dashboard" exact element={<Dashboard />} />
           </Routes>
         </BrowserRouter>

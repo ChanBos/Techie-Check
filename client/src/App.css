@@ -2,6 +2,7 @@
 /* Set the minimum height, the margins, padding and the background and font colour of the application. */
 .App {
   min-height: 617px;
+  max-height: 100%;
   margin: 0px;
   padding: 0px;
   background-color: black;
@@ -110,6 +111,12 @@
 }
 
 /* HOME PAGE */
+#home-page{ 
+  height: 100% !important;
+  background: #000000 !important;
+}
+
+
 /* Set the left padding of the ordered list element. */
 ol,
 ul {
@@ -193,7 +200,37 @@ is hovered over. */
   font-size: 3em !important;
 }
 
+#code-sub-categories {
+  margin-top: 0px !important;
+}
+
+/* Set the top and right margins of the ready text of the checkbox. */
+.ready-text {
+  margin-right: 30px;
+}
+
+.form-check-input {
+  margin-top: 6px !important;
+  cursor: pointer;
+}
+
+.form-check-input:focus {
+  background-color: #2feaff !important;
+}
+
+.go-button{
+  background-image: linear-gradient(to bottom right, #2feaff, #f676ff) !important;
+  border: none !important;
+  border-radius: 25% !important;
+  margin-top: 7px;
+}
+
 /* QUESTIONNAIRE PAGE */
+
+.quiz-component-header {
+  text-align: center !important;
+}
+
 /* Set the margins, padding, background colour and text alignment of the question/ answer cards. Also added a gradient border (coloured, sized 
 and) gradient direction set). */
 .question-card {
@@ -205,16 +242,26 @@ and) gradient direction set). */
   text-align: center;
 }
 
-/* DASHBOARD */
+.answer-button {
+  width: 100% !important;
+}
 
+.correct-answer {
+  color: #36ff2f !important;
+}
+
+.incorrect-answer {
+  color: #ff2f2f !important;
+}
+
+/* DASHBOARD */
+/* Set the top margin and the font colour of the dashboard table. */
 #dashboard-table {
   margin-top: 20px;
   color: #ffffff;
-  border-width: 3px !important;
-  border-image: linear-gradient(to bottom right, #2feaff, #f676ff) 1 !important;
 }
 
-/* --- Footer --- */
+/* --- FOOTER --- */
 /* Set the footer's position and aligned it to be centered at the bottom of the page. */
 .footer {
   position: relative;

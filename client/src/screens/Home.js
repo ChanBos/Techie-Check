@@ -1,7 +1,9 @@
 // Imported React library.
-import React from "react";
+import React, { useState } from "react";
+// Imported useNavigate from React Router Dom.
+import { useNavigate } from "react-router-dom";
 // Imported components from Bootstrap.
-import { Row, Col, Card, Button } from "react-bootstrap";
+import { Row, Col, Card, Button, Form } from "react-bootstrap";
 
 /**
  * Utilized Bootstrap components to create the Home page.
@@ -9,6 +11,43 @@ import { Row, Col, Card, Button } from "react-bootstrap";
  */
 
 const Home = () => {
+  const [quiz, setQuiz] = useState([]);
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+
+  let categoryEntry = "";
+  const quizCategory = (e) => {
+    const category = e.target.value;
+    categoryEntry = category;
+    setCategory(categoryEntry);
+  };
+
+  let difficultyEntry = "";
+  const quizDifficulty = (e) => {
+    const difficulty = e.target.value;
+    difficultyEntry = difficulty;
+    setDifficulty(difficultyEntry);
+  };
+
+  const navigate = useNavigate();
+
+  const submitQuizQuery = () => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const url = `https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&category=${category}&difficulty=${difficulty}&limit=10`;
+
+    const fetchQuiz = async () => {
+      try {
+        const response = await fetch(url);
+        const quiz = await response.json();
+        setQuiz(quiz);
+        navigate("/questionnaire", { state: { quiz: quiz } });
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchQuiz();
+  };
+
   return (
     <div>
       <Row>
@@ -42,11 +81,45 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">LINUX</Card.Title>
-                  <Card.Text>Take The Quiz</Card.Text>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          isValid
+                          value="linux"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -61,11 +134,44 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">DOCKER</Card.Title>
-                  <Card.Text>Take The Quiz</Card.Text>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          value="docker"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -80,11 +186,44 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">SQL</Card.Title>
-                  <Card.Text>Take The Quiz</Card.Text>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          value="sql"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -101,12 +240,45 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">CODE</Card.Title>
-                  <h6>JAVASCRIPT, HTML, PHP</h6>
-                  <Card.Text>Take The Quiz</Card.Text>
+                  <h6 id="code-sub-categories">(JAVASCRIPT, HTML, PHP)</h6>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          value="code"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -121,11 +293,44 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">DEVOPS</Card.Title>
-                  <Card.Text>Take The Quiz</Card.Text>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          value="devops"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -140,11 +345,44 @@ const Home = () => {
                 />
                 <div className="topic-image-overlay topic-image-overlay-blur">
                   <Card.Title className="topic-title">BASH</Card.Title>
-                  <Card.Text>Take The Quiz</Card.Text>
                   <Row>
-                    <Button className="difficulty-button">Easy</Button>
-                    <Button className="difficulty-button">Medium</Button>
-                    <Button className="difficulty-button">Hard</Button>
+                    <Card.Text className="ready-text">Select Quiz:</Card.Text>
+                    <Form>
+                      <Row>
+                        <Form.Check
+                          value="bash"
+                          onClick={quizCategory}
+                        ></Form.Check>
+                      </Row>
+                    </Form>
+                  </Row>
+                  <Row>
+                    <Button
+                      className="difficulty-button"
+                      value="Easy"
+                      onClick={quizDifficulty}
+                    >
+                      Easy
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Medium"
+                      onClick={quizDifficulty}
+                    >
+                      Medium
+                    </Button>
+                    <Button
+                      className="difficulty-button"
+                      value="Hard"
+                      onClick={quizDifficulty}
+                    >
+                      Hard
+                    </Button>
+                  </Row>
+                  <Row>
+                    <Button className="go-button" onClick={submitQuizQuery}>
+                      Go!
+                    </Button>
                   </Row>
                 </div>
               </Card>
@@ -152,6 +390,37 @@ const Home = () => {
           </Row>
         </Col>
       </Row>
+
+      {/* <div id="home-page">
+        <Row className="row-container">
+          <Col> */}
+      {/* {quiz.length !== 0 ? (
+              quiz.map((content, i) => ( */}
+      {/* {Object.keys(quiz).length !== 0 ? ( quiz.map((content, i) => (
+                <Card
+                  key={i}
+                  className="col-md-11 question-card"
+                  content={content}
+                >
+                  <Card.Title>QUESTION</Card.Title>
+                  <Card.Body>
+                    <Card.Text>{content.question}</Card.Text>
+                  </Card.Body>
+                  <Card.Title>SELECT YOUR ANSWER</Card.Title>
+                  <Button>{content.answers.answer_a}</Button>
+                  <Button>{content.answers.answer_b}</Button>
+                  <Button>{content.answers.answer_c}</Button>
+                  <Button>{content.answers.answer_d}</Button>
+                  <Button>{content.answers.answer_e}</Button>
+                  <Button>{content.answers.answer_f}</Button>
+                </Card>
+              ))
+            ) : (
+              <div></div>
+            )}
+          </Col>
+        </Row>
+      </div> */}
     </div>
   );
 };

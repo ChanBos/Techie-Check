@@ -4,7 +4,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 // Imported icons from FontAwesome.
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleUp, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Created a footer for the application that displays text in a header format and a "Scroll to Top" button.
@@ -13,13 +13,6 @@ import { faAngleDoubleUp, faHeart } from "@fortawesome/free-solid-svg-icons";
  */
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="footer">
       <Container fluid>
