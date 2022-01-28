@@ -35,6 +35,7 @@
   color: #2feaff !important;
 }
 
+/* Set the bottom margins of the h3 main headers. */
 .h3-main-headers {
   margin-bottom: 15px;
 }
@@ -96,6 +97,17 @@
   max-width: 475px;
 }
 
+/* Changed the font colour of the sample quiz's link. */
+#sample-link {
+  color: #2feaff;
+}
+
+/* Set the text decoration of sample quiz's link to none and for the font colour to change on hover. */
+#sample-link:hover {
+  text-decoration: none;
+  color: #f676ff;
+}
+
 /* REGISTER/ LOGIN PAGES */
 /* Set the width and margins of the authentication's input elements*/
 .auth-input {
@@ -111,21 +123,16 @@
 }
 
 /* HOME PAGE */
-#home-page{ 
-  height: 100% !important;
-  background: #000000 !important;
-}
-
-
 /* Set the left padding of the ordered list element. */
 ol,
 ul {
   padding-left: 18px !important;
 }
 
-/* Set the bottom padding of the listed instructions. */
-li {
-  padding-bottom: 10px;
+/* Set the top and bottom padding of the (ordered list) listed instructions. */
+ol li {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 /* Set the size (height x width), the position to relative (to allow for the overlay effect), the top and bottom margins, the padding, the background 
@@ -200,6 +207,7 @@ is hovered over. */
   font-size: 3em !important;
 }
 
+/* Set the top margin of the Code option's subcategories. */
 #code-sub-categories {
   margin-top: 0px !important;
 }
@@ -209,24 +217,26 @@ is hovered over. */
   margin-right: 30px;
 }
 
+/* Set the top margin of the checkbox and for the cursor to change on hover. */
 .form-check-input {
   margin-top: 6px !important;
   cursor: pointer;
 }
 
-.form-check-input:focus {
-  background-color: #2feaff !important;
-}
-
-.go-button{
-  background-image: linear-gradient(to bottom right, #2feaff, #f676ff) !important;
+/* Set the top margin, border radius and the border (none) of the "Go!" button and implemented a gradient background (coloured, styled). */
+.go-button {
+  background-image: linear-gradient(
+    to bottom right,
+    #2feaff,
+    #f676ff
+  ) !important;
   border: none !important;
   border-radius: 25% !important;
   margin-top: 7px;
 }
 
 /* QUESTIONNAIRE PAGE */
-
+/* Set the text alignment of the "Questionnaire" page's heading. */
 .quiz-component-header {
   text-align: center !important;
 }
@@ -242,14 +252,12 @@ and) gradient direction set). */
   text-align: center;
 }
 
-.answer-button {
-  width: 100% !important;
-}
-
+/* Set for the font colour to change once a correct answer is selected. */
 .correct-answer {
   color: #36ff2f !important;
 }
 
+/* Set for the font colour to change once an incorrect answer is selected. */
 .incorrect-answer {
   color: #ff2f2f !important;
 }

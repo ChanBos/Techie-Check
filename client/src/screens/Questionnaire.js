@@ -14,51 +14,58 @@ const Questionnaire = (error) => {
   const location = useLocation();
   // const navigate = useNavigate();
   const quiz = location.state.quiz;
+  const answersPreview = quiz.map((answer) => answer.correct_answers);
+  console.log(answersPreview);
 
   const checkAnswers = (e) => {
     const selectedAnswer = e.target.value;
-    console.log(selectedAnswer);
+    console.log("Selected Answer: " + selectedAnswer);
     setSelectedAnswer(selectedAnswer);
 
-    const answerA = quiz.map((answer) => answer.correct_answers.answer_a_correct);
+    const answerA = quiz.map(
+      (answer) => answer.correct_answers.answer_a_correct
+    );
     console.log(answerA);
-    const answerB = quiz.map((answer) => answer.correct_answers.answer_b_correct);
-    console.log(answerB);
-    const answerC = quiz.map((answer) => answer.correct_answers.answer_c_correct);
-    console.log(answerC);
-    const answerD = quiz.map((answer) => answer.correct_answers.answer_d_correct);
-    console.log(answerD);
-    const answerE = quiz.map((answer) => answer.correct_answers.answer_e_correct);
-    console.log(answerE);
-    const answerF = quiz.map((answer) => answer.correct_answers.answer_f_correct);
-    console.log(answerF);
+    const answerB = quiz.map(
+      (answer) => answer.correct_answers.answer_b_correct
+    );
+    const answerC = quiz.map(
+      (answer) => answer.correct_answers.answer_c_correct
+    );
+    const answerD = quiz.map(
+      (answer) => answer.correct_answers.answer_d_correct
+    );
+    const answerE = quiz.map(
+      (answer) => answer.correct_answers.answer_e_correct
+    );
+    const answerF = quiz.map(
+      (answer) => answer.correct_answers.answer_f_correct
+    );
 
-    if (answerA === "true" && selectedAnswer === "answer_a" && answerA === selectedAnswer) {
-      console.log(answerA)
-      console.log(selectedAnswer)
+    if (answerA === "true" && selectedAnswer === "answer_a") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerB === "true" && selectedAnswer === "answer_b" && answerB === selectedAnswer) {
+    } else if (answerB === "true" && selectedAnswer === "answer_b") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerC === "true" && selectedAnswer === "answer_c" && answerC === selectedAnswer) {
+    } else if (answerC === "true" && selectedAnswer === "answer_c") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerD === "true" && selectedAnswer === "answer_d" && answerD === selectedAnswer) {
+    } else if (answerD === "true" && selectedAnswer === "answer_d") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerE === "true" && selectedAnswer === "answer_e" && answerE === selectedAnswer) {
+    } else if (answerE === "true" && selectedAnswer === "answer_e") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerF === "true" && selectedAnswer === "answer_f" && answerF === selectedAnswer) {
+    } else if (answerF === "true" && selectedAnswer === "answer_f") {
       setStyle("correct-answer");
       setScore(score + 1);
     } else {
       setStyle("incorrect-answer");
+      setScore(score);
     }
-    setScore(score);
+    console.log("Score: " + score);
   };
-  console.log(score);
 
   return (
     <div>

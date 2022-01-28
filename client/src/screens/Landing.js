@@ -49,6 +49,13 @@ const Landing = () => {
             Create your account today to take advantage of these amazing
             quizzes.
           </p>
+          <p>
+            Try a sample quiz
+            <a href="/samplequiz" id="sample-link">
+              &#10094; here / &#10095;{" "}
+            </a>
+            if you are not yet convinced.
+          </p>
         </Col>
         <Col className="col-md-5 landing-image">
           <Image

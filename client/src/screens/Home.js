@@ -390,37 +390,6 @@ const Home = () => {
           </Row>
         </Col>
       </Row>
-
-      {/* <div id="home-page">
-        <Row className="row-container">
-          <Col> */}
-      {/* {quiz.length !== 0 ? (
-              quiz.map((content, i) => ( */}
-      {/* {Object.keys(quiz).length !== 0 ? ( quiz.map((content, i) => (
-                <Card
-                  key={i}
-                  className="col-md-11 question-card"
-                  content={content}
-                >
-                  <Card.Title>QUESTION</Card.Title>
-                  <Card.Body>
-                    <Card.Text>{content.question}</Card.Text>
-                  </Card.Body>
-                  <Card.Title>SELECT YOUR ANSWER</Card.Title>
-                  <Button>{content.answers.answer_a}</Button>
-                  <Button>{content.answers.answer_b}</Button>
-                  <Button>{content.answers.answer_c}</Button>
-                  <Button>{content.answers.answer_d}</Button>
-                  <Button>{content.answers.answer_e}</Button>
-                  <Button>{content.answers.answer_f}</Button>
-                </Card>
-              ))
-            ) : (
-              <div></div>
-            )}
-          </Col>
-        </Row>
-      </div> */}
     </div>
   );
 };
