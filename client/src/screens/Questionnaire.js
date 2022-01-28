@@ -14,6 +14,9 @@ const Questionnaire = (error) => {
   const location = useLocation();
   // const navigate = useNavigate();
   const quiz = location.state.quiz;
+  console.log(quiz);
+  const answersArray = quiz.map((answer) => answer.answers);
+  console.log(answersArray);
   const answersPreview = quiz.map((answer) => answer.correct_answers);
   console.log(answersPreview);
 
@@ -94,7 +97,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_a"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_a" ? style : undefined
+                    }
                   >
                     a. {content.answers.answer_a}
                   </Button>
@@ -105,7 +110,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_b"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_b" ? style : undefined
+                    }
                   >
                     b. {content.answers.answer_b}
                   </Button>
@@ -116,7 +123,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_c"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_c" ? style : undefined
+                    }
                   >
                     c. {content.answers.answer_c}
                   </Button>
@@ -127,7 +136,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_d"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_d" ? style : undefined
+                    }
                   >
                     d. {content.answers.answer_d}
                   </Button>
@@ -138,7 +149,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_e"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_e" ? style : undefined
+                    }
                   >
                     e. {content.answers.answer_e}
                   </Button>
@@ -149,7 +162,9 @@ const Questionnaire = (error) => {
                   <Button
                     value="answer_f"
                     onClick={checkAnswers}
-                    className={style}
+                    className={
+                      selectedAnswer === "answer_f" ? style : undefined
+                    }
                   >
                     f. {content.answers.answer_f}
                   </Button>
