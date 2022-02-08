@@ -1,7 +1,9 @@
+/* eslint-disable eqeqeq */
 // Imported React library.
 import React, { useState } from "react";
 // Imported useLocation from React Router.
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+// Imported stylesheet.
 import "../App.css";
 // Imported components from Bootstrap.
 import { Row, Col, Card, Button } from "react-bootstrap";
@@ -12,55 +14,42 @@ const Questionnaire = (error) => {
   const [score, setScore] = useState(0);
 
   const location = useLocation();
-  // const navigate = useNavigate();
   const quiz = location.state.quiz;
   console.log(quiz);
-  const answersArray = quiz.map((answer) => answer.answers);
-  console.log(answersArray);
-  const answersPreview = quiz.map((answer) => answer.correct_answers);
-  console.log(answersPreview);
+
+  const correctAnswers = quiz.map((answer) => answer.correct_answers);
+
+  const answerCheckA = correctAnswers.map((answer) => answer.answer_a_correct);
+  console.log(answerCheckA);
+  // const checkA = answerCheckA.map((answer) => answer
+  // console.log(checkA);
+  const answerCheckB = correctAnswers.map((answer) => answer.answer_b_correct);
+  const answerCheckC = correctAnswers.map((answer) => answer.answer_c_correct);
+  const answerCheckD = correctAnswers.map((answer) => answer.answer_d_correct);
+  const answerCheckE = correctAnswers.map((answer) => answer.answer_e_correct);
+  const answerCheckF = correctAnswers.map((answer) => answer.answer_f_correct);
 
   const checkAnswers = (e) => {
     const selectedAnswer = e.target.value;
-    console.log("Selected Answer: " + selectedAnswer);
     setSelectedAnswer(selectedAnswer);
+    console.log("Selected Answer: " + selectedAnswer);
 
-    const answerA = quiz.map(
-      (answer) => answer.correct_answers.answer_a_correct
-    );
-    console.log(answerA);
-    const answerB = quiz.map(
-      (answer) => answer.correct_answers.answer_b_correct
-    );
-    const answerC = quiz.map(
-      (answer) => answer.correct_answers.answer_c_correct
-    );
-    const answerD = quiz.map(
-      (answer) => answer.correct_answers.answer_d_correct
-    );
-    const answerE = quiz.map(
-      (answer) => answer.correct_answers.answer_e_correct
-    );
-    const answerF = quiz.map(
-      (answer) => answer.correct_answers.answer_f_correct
-    );
-
-    if (answerA === "true" && selectedAnswer === "answer_a") {
+    if (answerCheckA == "true" && selectedAnswer == "answer_a") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerB === "true" && selectedAnswer === "answer_b") {
+    } else if (answerCheckB == "true" && selectedAnswer == "answer_b") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerC === "true" && selectedAnswer === "answer_c") {
+    } else if (answerCheckC == "true" && selectedAnswer == "answer_c") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerD === "true" && selectedAnswer === "answer_d") {
+    } else if (answerCheckD == "true" && selectedAnswer == "answer_d") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerE === "true" && selectedAnswer === "answer_e") {
+    } else if (answerCheckE == "true" && selectedAnswer == "answer_e") {
       setStyle("correct-answer");
       setScore(score + 1);
-    } else if (answerF === "true" && selectedAnswer === "answer_f") {
+    } else if (answerCheckF == "true" && selectedAnswer == "answer_f") {
       setStyle("correct-answer");
       setScore(score + 1);
     } else {
@@ -88,7 +77,7 @@ const Questionnaire = (error) => {
                 className="col-md-11 question-card"
                 content={content}
               >
-                <Card.Title>QUESTION</Card.Title>
+                <Card.Title>QUESTION {i + 1}</Card.Title>
                 <Card.Body>
                   <Card.Text>{content.question}</Card.Text>
                 </Card.Body>

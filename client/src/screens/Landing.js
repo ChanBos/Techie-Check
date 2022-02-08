@@ -52,7 +52,7 @@ const Landing = () => {
           <p>
             Try a sample quiz
             <a href="/samplequiz" id="sample-link">
-              &#10094; here / &#10095;{" "}
+              &#160;&#10094; here / &#10095;{" "}
             </a>
             if you are not yet convinced.
           </p>
