@@ -1,110 +1,113 @@
 // Imported React library.
-// import React, { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 // Requiring Axios.
-// import axios from "axios";
+import axios from "axios";
 // Imported components from React Bootstrap.
 import { Row, Col, Form, FormControl, Button } from "react-bootstrap";
 // Imported components.
-// import Loader from "../components/Loader";
-// import Error from "../components/Error";
-// import Success from "../components/Success";
+import Error from "../components/Error";
+import Success from "../components/Success";
 
 /**
  * Created a register function to allow the user to register.
- * Props: name, email, password, cpassword, loading, error, success. Set the initial states.
- * Made use of an asynchronous function to Post the information to "/api/users/register".
+ * Props: name, surname, email, password, error, success. Set the initial states.
+ * Made use of an asynchronous function to Post the information to "/users/register".
  * If successful, the request will be sent and the user will be allowed to access the application. A message will display in the modal and the
  * user will be redirected to the application. setLoading is true when the request is sent and false when it is returned.
  * If an error occurs the error will be logged and an alert message will display in the modal. setLoading is false when an error is displayed.
  */
 
 const Register = () => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState();
-  // const [success, setSuccess] = useState();
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
 
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
+  const handleRegister = (e) => {
+    e.preventDefault();
 
-  //   const user = {
-  //     name,
-  //     email,
-  //     password,
-  //   };
+    const user = {
+      name,
+      surname,
+      email,
+      password,
+    };
 
-  //   axios({
-  //     url: "/api/users/register",
-  //     method: "post",
-  //     data: {
-  //       Name: name,
-  //       Email: email,
-  //       Password: password,
-  //     },
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       setLoading(false);
-  //       setSuccess(true);
-  //       localStorage.setItem("currentUser", JSON.stringify(user));
-  //       setTimeout(function () {
-  //         window.location.href = "/login";
-  //       }, 2000);
-  //     })
-  //     .catch((error) => {
-  //       setError(error);
-  //     });
-  // };
+    axios({
+      url: "http://localhost:8080/users/register",
+      method: "post",
+      data: {
+        Name: name,
+        Surname: surname,
+        Email: email,
+        Password: password,
+      },
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        setSuccess(true);
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        setTimeout(function () {
+          window.location.href = "/login";
+        }, 2000);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  };
 
   return (
     <div className="bs">
-      {/* {loading && <Loader />} */}
       <Row className="row-container">
         <Col className="col-md-5 auth-content">
-          {/* {error && (
+          {error && (
             <Error message="Something went wrong. Please try again later." />
           )}
-          {success && <Success message="Registered Successfully." />} */}
+          {success && <Success message="Registered Successfully." />}
           <h3>Register</h3>
           <Form>
             <FormControl
               className="auth-input"
               type="text"
               placeholder="Name"
-              // value={name}
-              // onChange={(e) => {
-              //   setName(e.target.value);
-              // }}
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <FormControl
+              className="auth-input"
+              type="text"
+              placeholder="Surname"
+              value={surname}
+              onChange={(e) => {
+                setSurname(e.target.value);
+              }}
             />
             <FormControl
               className="auth-input"
               type="text"
               placeholder="Email"
-              // value={email}
-              // onChange={(e) => {
-              //   setEmail(e.target.value);
-              // }}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <FormControl
               className="auth-input"
               type="password"
               placeholder="Password"
-              // value={password}
-              // onChange={(e) => {
-              //   setPassword(e.target.value);
-              // }}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </Form>
-          <Button
-          // onClick={(e) => handleRegister(e)}
-          >
-            Register
-          </Button>
+          <Button onClick={(e) => handleRegister(e)}>Register</Button>
         </Col>
       </Row>
     </div>

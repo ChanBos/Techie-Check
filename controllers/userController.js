@@ -12,7 +12,7 @@ const jwtConfig = require("../config/app.config.js");
 /**
  * POST/ CREATE:
  * Created a function to allow a user to sign up.
- * Stipulated the body requirements: Name, Email and Password.
+ * Stipulated the body requirements: Name, Surname, Email and Password.
  * If an error occurs, status 500 will be returned with an error.
  * If all is in order, a new user will be created in the database and the credentials will be saved.
  * The generated token will expire in 24 hours.
@@ -27,6 +27,7 @@ exports.registerController = (req, res) => {
   User.create(
     {
       Name: req.body.Name,
+      Surname: req.body.Surname,
       Email: req.body.Email,
       Password: hashedPassword,
     },

@@ -1,14 +1,12 @@
 // Imported React library.
-// import React, { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 // Requiring Axios.
-// import axios from "axios";
+import axios from "axios";
 // Imported components from React Bootstrap.
 import { Row, Col, Form, FormControl, Button } from "react-bootstrap";
 // Imported components.
-// import Loader from "../components/Loader";
-// import Error from "../components/Error";
-// import Success from "../components/Success";
+import Error from "../components/Error";
+import Success from "../components/Success";
 
 /**
  * Created a login function to allow the user to login.
@@ -21,73 +19,65 @@ import { Row, Col, Form, FormControl, Button } from "react-bootstrap";
  */
 
 const Login = () => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState();
-  // const [success, setSuccess] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  //   axios({
-  //     url: "/api/users/login",
-  //     method: "post",
-  //     data: {
-  //       Email: email,
-  //       Password: password,
-  //     },
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       setLoading(false);
-  //       setSuccess(true);
-  //       localStorage.setItem("token", response.data.token);
-  //       setTimeout(function () {
-  //         window.location.href = "/home";
-  //       }, 2000);
-  //     })
-  //     .catch((err) => {
-  //       setLoading(false);
-  //       setError(error);
-  //     });
-  // };
+    axios({
+      url: "http://localhost:8080/users/login",
+      method: "post",
+      data: {
+        Email: email,
+        Password: password,
+      },
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        setSuccess(true);
+        localStorage.setItem("token", response.data.token);
+        setTimeout(function () {
+          window.location.href = "/home";
+        }, 2000);
+      })
+      .catch((err) => {
+        setError(error);
+      });
+  };
 
   return (
     <div className="bs">
-      {/* {loading && <Loader />} */}
       <Row className="row-container">
         <Col className="col-md-5 auth-content">
-          {/* {error && <Error message="Invalid Credentials." />}
-          {success && <Success message="Login Successful." />} */}
+          {error && <Error message="Invalid Credentials." />}
+          {success && <Success message="Login Successful." />}
           <h3>Login</h3>
           <Form>
             <FormControl
               className="auth-input"
               type="text"
               placeholder="Email"
-              // value={email}
-              // onChange={(e) => {
-              //   setEmail(e.target.value);
-              // }}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <FormControl
               className="auth-input"
               type="password"
               placeholder="Password"
-              // value={password}
-              // onChange={(e) => {
-              //   setPassword(e.target.value);
-              // }}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </Form>
-          <Button
-          // onClick={(e) => handleLogin(e)}
-          >
-            Login
-          </Button>
+          <Button onClick={(e) => handleLogin(e)}>Login</Button>
         </Col>
       </Row>
     </div>

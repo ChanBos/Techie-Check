@@ -50,14 +50,15 @@ const Navigation = () => {
 
             {user ? (
               <React.Fragment>
-                <Col className="col-md-3">
+                <Col className="col-md-3" id="user-nav-col">
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-basic" className="generalnav">
                       <FontAwesomeIcon icon={faUser} />
-                      {user.name}
+                      {user.name} {user.surname}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <Dropdown.Item href="/">Home</Dropdown.Item>
+                      <Dropdown.Item href="/home">Quizzes</Dropdown.Item>
                       <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
                       <Dropdown.Item href="#/action-2" onClick={logout}>
                         Logout

@@ -31,7 +31,8 @@
 }
 
 /* Set for the buttons' font colours to change once hovered over. */
-.btn:hover {
+.btn:hover,
+.fa-trash-alt:hover {
   color: #2feaff !important;
 }
 
@@ -72,6 +73,12 @@
   margin-left: 40px !important;
 }
 
+/* Set for the user dropdown to float right and set the right margin. */
+#dropdown-basic {
+  float: right;
+  margin-right: 20px !important;
+}
+
 /* Set the left and right margins of the h1 elements. */
 .auth-h1 {
   margin-left: 10px;
@@ -87,8 +94,8 @@
 /* LANDING PAGE */
 /* Set the left margin of the intro paragraph. */
 .intro-paragraph {
-  margin-left: 20px !important;
-  margin-right: 92px !important;
+  margin-left: 56px !important;
+  margin-right: 56px !important;
 }
 
 /* Set the height and the maximum width of the landing image. */
@@ -223,6 +230,15 @@ is hovered over. */
   cursor: pointer;
 }
 
+/*  Set for the background to change to a gradient background, as well as for the font colour and weight to change once the difficulty is 
+selected. */
+.difficulty-button:focus {
+  background: #000000 !important;
+  background: radial-gradient(circle, #2feaffa6 38%, #00d4ff00 100%) !important;
+  color: #f676ff !important;
+  font-weight: bold !important;
+}
+
 /* Set the top margin, border radius and the border (none) of the "Go!" button and implemented a gradient background (coloured, styled). */
 .go-button {
   background-image: linear-gradient(
@@ -252,6 +268,17 @@ and) gradient direction set). */
   text-align: center;
 }
 
+/* Set for the background to change to a gradient background once the answer is selected. */
+.selected-answer {
+  background: #000000 !important;
+  background: radial-gradient(
+    circle,
+    #000000 18%,
+    #2feaff 38%,
+    #00d4ff00 100%
+  ) !important;
+}
+
 /* Set for the font colour to change once a correct answer is selected. */
 .correct-answer {
   color: #36ff2f !important;
@@ -262,11 +289,26 @@ and) gradient direction set). */
   color: #ff2f2f !important;
 }
 
+/* .swal2-modal {
+  background: #000000 !important;
+  color: #ffffff !important;
+} */
+
 /* DASHBOARD */
 /* Set the top margin and the font colour of the dashboard table. */
 #dashboard-table {
   margin-top: 20px;
   color: #ffffff;
+}
+
+/* Centered the remove button area's text. */
+#remove-button {
+  text-align: center;
+}
+
+/* Set for the cursor to change to a pointer once the remove button is hovered over. */
+.fa-trash-alt {
+  cursor: pointer !important;
 }
 
 /* --- FOOTER --- */
